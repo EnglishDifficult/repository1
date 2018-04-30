@@ -1,0 +1,132 @@
+*{padding:0;margin:0}
+
+.top{
+	width:100%;
+	height:110px;
+	background:#F05146;
+	position: relative;
+}
+
+.top-msg{
+	position: relative;
+	top:50px;
+	left:50%;
+	transform: translateX(-50%);
+	width:86%;
+	height:60px;
+	border-radius: 5px;
+	box-shadow: 0 0 3px #5A5A5A;
+	padding:10px;
+	background:#FFF;
+	display: flex;
+}
+.top-left, .top-right{
+	display: flex;
+	flex-direction: column;
+	width:50%;
+	font-size:14px;
+	position: relative;
+	padding-top:5px;
+}
+.top p{
+	width:70%;
+	text-align:left;
+	float:left;
+	margin-left:50px;
+	line-height:25px;
+}
+.top img{
+	width:35px;
+	height:35px;
+	position: absolute;
+	top:12px;
+	left:10px;
+	
+}
+.main{
+	padding:30px 0;
+	background:#EAEAEA;
+}
+
+.level{
+	width:92%;
+	margin-left:4%;
+	border-radius: 5px;
+	background: #FFF;
+	margin-top:20px;
+}
+.level .level-top{
+	padding:10px;
+	height:25px;
+	margin-bottom:2px;
+}
+
+.level .level-top img{
+	width:18px;
+	height:18px;
+	float:left;
+	margin:6px 6px 0 10px;
+}
+.level .level-top h2{
+	display: inline-block;
+	width:70%;
+	font-size: 18px;
+	line-height:30px;
+	font-weight:500;
+}
+.level-body .game-time{
+	font-size: 18px;
+	height:22px;
+	padding:5px 0px 5px 20px;
+}
+.level-body .game-time span{
+	color:deepskyblue;
+	font-size:13px;
+}
+.level-body .tip{
+	overflow: hidden;
+	height:160px;
+	overflow-x: scroll;
+	padding:8px 10px;
+}
+.tip ul{
+	width:400px;
+	height:150px;
+}
+.tip ul li{
+	list-style: none;
+	margin-right:10px;
+	font-size:15px;
+	color:#FFF;
+	width:120px;
+	height:150px;
+	float: left;
+	background-image:url('../imgs/yemao.png');
+	background-size: 100% 100%;
+	position: relative;
+}
+.tip ul li:nth-child(2) {
+	background-image:url('../imgs/wucan.png');
+}
+.tip ul li:nth-child(3) {
+	background-image:url('../imgs/wancan.png');
+}
+.li-text{
+	margin-left:10px;
+	margin-top:60px;
+	font-size:15px;
+}
+
+.li-text span{
+	font-size:25px;
+}
+.tip .state{
+	position: absolute;
+	width:120px;
+	bottom:0px;
+	text-align: center;
+	height:30px;
+	background:rgba(255,255,255,0.5);
+	font-size:14px;
+	line-height: 30px;
+}

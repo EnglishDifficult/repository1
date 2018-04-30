@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡练习</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	
+	.option{
+		width: 600px;
+		height: 60px;
+ 		margin:50px auto 0 auto;
+ 		border: 1px solid orange;
+		border-bottom: none;
+	}
+	.option span{
+		width:200px;
+		height: 100%;
+		float: left;
+		display: block;
+	}
+	.option span{
+ 		font-size:30px;
+ 		text-align: center;
+ 		line-height: 60px;
+	}
+	.option span:hover{
+		background: orange;
+	}
+	.cotianer{
+		width: 600px;
+		height: 300px;
+		border:1px solid orange;
+		margin:auto;
+	}
+	.cotianer span{
+		width: 600px;
+		height: 300px;
+		text-align: center;
+		position: absolute;
+		font-size: 30px;
+		line-height: 60px;
+		display: block;
+		background: white;
+	}
+	</style>
+</head>
+<body>
+<div class="xxk">
+	<div class="option">
+	<span class="option1" onclick="cli()">1</span>
+	<span class="option1" onclick="cli()">2</span>
+	<span class="option1" onclick="cli()">3</span>
+</div>
+<div class="cotianer">
+	<span class="cotianer1" >abc</span>
+	<span class="cotianer1" style="display: none;">123</span>
+	<span class="cotianer1" style="display: none;">好的嘛</span>
+</div>
+</div>
+<script type="text/javascript">
+	var opt=document.getElementsByClassName("option1");
+	var cot=document.getElementsByClassName("cotianer1");
+	
+	for (var i = 0 ;i <opt.length; i++) {
+		
+		opt[i].sx1=i
+		opt[i].onclick=function opt(){
+			for (j=0;j<cot.length;j++){
+				cot[j].style.display="none"
+			}
+			cot[this.sx1].style.display="block"
+		}
+	}
+</script>
+</body>
+</html>

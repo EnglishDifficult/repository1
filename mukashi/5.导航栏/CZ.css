@@ -1,0 +1,33 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.contianer {
+	float: left;
+}
+
+li :hover{
+	background: black;
+	color: cyan;
+}
+
+ul{
+	width:160px;
+	padding: 15px 0;
+	background-color: #2E2525;
+}
+
+li{
+	background: #2E2525;
+}
+
+li a{
+	text-decoration: none;
+	padding: 10px;
+	padding-left: 40px; 
+	display: block;
+	color: #fff;
+	font-size:14px;
+}
+

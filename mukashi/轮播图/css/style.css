@@ -1,0 +1,179 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+a{
+	text-decoration: none;
+	color:white;
+	font-size: 16px;
+}
+
+li{
+	list-style: none;
+}
+
+.main{
+	width: 1200px;
+	height: 460px;
+	margin:30px auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.bg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.bg1{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+}
+
+.sidenav{
+	width: 240px;
+	height: 100%;
+	overflow: hidden;
+	background: rgba(0,0,0,0.4);
+	position: absolute;
+}
+
+.left img{
+	transform:rotate(180deg);
+	top: 10px;
+	left: 10px;
+	position: relative;
+}
+
+.right img{
+	top: 10px;
+	left: 10px;
+	position: relative;	
+}
+
+.left{
+	left: 260px;
+	width: 40px;
+	height: 60px;
+	position: absolute;
+	top: 200px;
+}
+
+.right{
+	width: 40px;
+	height: 60px;
+	right: 20px;
+	top: 200px;
+	position: absolute;
+}
+
+.bgnav1 span{
+	background:black;
+	opacity: 0.3;
+}
+
+.bgnav1 span img{
+	margin-top: 5px;
+}
+
+.bgnav2{
+	position: absolute;
+	bottom: 50px;
+	right: 150px;
+}
+
+.dot{
+	width: 10px;
+	height: 10px;
+	border-radius: 15px;
+	border:1px solid white;
+	display: inline-block;
+	left: 10px;
+	padding:0 5px;
+	position: relative;
+	background: #A19F9F;
+}
+
+.sidenav ul{
+	padding: 10px 0;
+}
+
+.sidenav ul li{
+	width: 240px;
+	height: 50px;
+	
+}
+
+.sidenav ul li:hover{
+background-color: rgba(10,10,10,0.5);
+}
+
+.sidenav ul li a{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.zi{
+	width: 100%;
+	position: relative;
+	left:20px;
+	top: 15px;
+}
+
+.zi span{
+	position: relative;
+	right:-100px;
+}
+
+.change{
+	height: 100px;
+	width: 1200px;
+	background: #2B505D;
+	margin: 0 auto;
+}
+
+.change h3{
+	text-align: center;
+	top: 10px;
+	position: relative;
+}
+
+.mod{
+	width: 50px;
+	height: 30px;
+	background: orange;
+	text-align: center;
+	line-height: 30px;
+	margin: 15px 10px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.mod1{
+	width: 70px;
+	height: 30px;
+	background: orange;
+	text-align: center;
+	line-height: 30px;
+	margin: 15px 10px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.huakuai{
+	display: inline-block;
+	color:white;
+	position: relative;
+	top: 2px;
+}
+
+.huakuai input{
+	position: relative;
+	top: 5px;
+	margin-left: 15px;
+}
