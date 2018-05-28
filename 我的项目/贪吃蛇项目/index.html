@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style>
+	.container{
+		/*background: skyblue;*/
+		width: 800px;
+		height: 601px;
+		margin:30px auto;
+		border: 1px solid black;
+	}
+	.canvas{
+		width:600px;
+		height: 600px;
+		background-color: skyblue;
+		float: left;
+	}
+	#rankk{
+		border-bottom:1px solid;
+		width: 200px;
+		height: 400px;
+		float: right;
+		text-align: center;
+		line-height: 40px;
+	}
+	#rankk div{
+		text-align: center;
+		line-height: 40px;
+		margin: 0 40px;		
+	}
+	#rankk span{
+		display: block;
+		border-bottom: 1px solid;
+	}
+	#mycanvas{
+		border:1px solid skyblue;
+		border-top:none;
+		border-left:none;
+		border-right:1px solid black;
+		/*box-sizing:border-box;*/
+	}
+	.points{
+		width: 150px;
+		float: left;
+		color: red;
+		padding-left: 50px;
+		border-bottom:1px solid black;
+		height: 40px;
+		margin-top: 20px;
+	}
+	.index{
+		color:#7E7E7E;
+		width: 180px;
+		float: left;
+		padding-left: 20px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="canvas">
+		<canvas id="mycanvas" width="600" height="600"></canvas>
+		</div>
+		<div id="rankk"><span>排行榜</span></div>
+	<div class="points">points:<span id="points">0</span></div>
+	<div class="index">说明: <br>p键暂停<br>排行榜可保存前6名<br>刷新重新游戏<br>F12→console中查看死亡方式</div>
+	</div>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById("mycanvas");
+			var context = canvas.getContext('2d');
+			// 蛇移动速度
+			var snake_speed = 50;
+			var interval = setInterval(snake_leave,snake_speed)
+			// 设定方向
+			var direction = 3;
+			// 保存蛇长
+			var snakelen = 20;
+			// 路径
+			var map = [];
+			// 蛇身大小
+			var size = 10;
+			// 食物坐标
+			var foodx = 0;
+			var foody = 0;
+			// 蛇头坐标		
+			var x = 10;
+			var y =10;	
+			// 积分
+			var points = document.getElementById("points")
+			var point = 0;
+			// 暂停开关
+			var swit = 1;
+			// 排行榜
+			if(JSON.parse(localStorage.getItem("rank"))){
+				rank = JSON.parse(localStorage.getItem("rank"));
+			}else{
+				rank = [];
+			}
+			// 排行榜输出
+			var array = new Array;
+			var ranks = document.getElementById('rankk');
+			for(var i = 0;i < rank.length;i++){
+				var div = document.createElement("div");
+				var node = document.createTextNode(rank[i]);
+				array[i] = div;
+				array[i].style.borderBottom ="1px solid"
+				array[i].appendChild(node);
+				ranks.appendChild(array[i]);
+			}
+			// 蛇移动函数
+			function snake_leave(){
+				// 蛇头移动
+				switch(direction){
+					case 0: y -= size;
+					break;
+					case 1: y += size;
+					break;
+					case 2: x -= size;
+					break;
+					case 3: x += size;
+					break;
+				}
+				// 撞墙
+				if(x > 590 || y > 590 || x < 0 || y < 0){
+					console.log("你撞墙死了")
+					rankstor();
+					window.clearInterval(interval);
+				}
+				// 撞自己与食物撞体bug修复
+				for(var i = 0;i < map.length;i++){
+					var xx = parseInt(map[i].x);
+					var yy = parseInt(map[i].y);
+					if(xx == x && yy == y){
+						console.log("你撞自己死了");
+						rankstor();
+						window.clearInterval(interval);
+					}
+					if (xx == foodx*10 && yy == foody*10) {
+						context.fillStyle = "red";
+						context.fillRect(foodx*10,foody*10,size,size)
+						snake_food();
+					}
+				}
+				// 每次移动，蛇身减1
+				if(map.length > snakelen){
+					var foot = map.shift();
+					context.clearRect(foot['x'],foot['y'],size,size);
+				}
+				// 吃食物后加分生成食物
+				if (x == foodx*10 && y == foody*10){
+					snakelen = snakelen + 5;
+					snake_food();
+					point++;
+					points.innerHTML = point;
+				}
+				// 每次移动蛇头改变
+				map.push({'x':x,'y':y});
+				context.fillStyle = "red";
+				context.fillRect(x,y,size,size);
+			}
+			// 键盘控制
+			document.onkeydown = function(event){
+				var code = event.keyCode;
+				switch(code){
+					case 37:if(direction != 3) direction = 2;
+					break;
+					case 38:if(direction != 1) direction = 0;
+					break;
+					case 39:if(direction != 2) direction = 3;
+					break;
+					case 40:if(direction != 0) direction = 1;
+					break;
+					case 80:if(swit == 1){
+						clearInterval(interval)
+						swit = 2;
+						console.log(interval);
+					}else{
+						swit = 1;
+						interval = setInterval(snake_leave,snake_speed);
+						console.log(interval);
+					}
+				}
+			}
+			// 生成食物
+			function snake_food(){
+				foodx = Math.floor(Math.random() * 60);
+				foody = Math.floor(Math.random() * 60);
+				context.fillStyle = "#000";
+				context.fillRect(foodx * 10,foody * 10,10,10);
+			}
+			snake_food();
+			if(localStorage.rank){}else{
+
+			}
+			// 排序函数
+			function sortNumber(a,b){
+				return b-a
+			}
+			// 记录得分
+			function rankstor(){
+				if (rank.length > 6) {
+					rank.push(point);
+					rank.sort(sortNumber);
+					for(var i = 0;i < rank.length-3;i++){
+						rank.pop();
+					}
+					localStorage.setItem("rank",JSON.stringify(rank))
+				}else{
+					rank.push(point);
+					rank.sort(sortNumber);
+					localStorage.setItem("rank",JSON.stringify(rank))
+				}
+			}
+		}
+	</script>
+</body>
+</html>
+
+

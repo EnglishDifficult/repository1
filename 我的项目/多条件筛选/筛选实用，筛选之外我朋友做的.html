@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>冰箱商品列表</title>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+		.filtr-item{
+			float: left;
+			width: 195px;
+			height: 250px;
+			overflow: hidden;
+			border:1px solid;
+		}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="selectNumberScreen">
+
+			<div id="selectList" class="screenBox screenBackground">
+				<br><br>
+				<dl class="listIndex" attr="terminal_brand_s">
+					<dt>品　　牌： </dt>
+					<dd>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Haier">海尔</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Siemens">西门子</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Midea">美的</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Ronshen">容声</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Panasonic">松下</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="MeiLing">美菱</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="TCL">TCL</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Homa">奥玛</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="KONKA">康佳</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="SAMSUNG">三星</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Galanz">格兰仕</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="Hisen">海信</a>
+
+					</dd>
+				</dl>
+
+				<dl class=" listIndex" attr="门款式">
+					<dt>门 款 式 ： </dt>
+					<dd>
+						<a href="javascript:void(0)" values2="" values1="" attrval="3doors">三门</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="shiziduikaidoors">十字对开门</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="1door">单门</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="2doors">双门</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="ndoors">多门</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="duikaidoors">对开门</a>
+					</dd>
+				</dl>
+				<dl class="listIndex" attr="价格范围">
+					<dt>总 容 积 ： </dt>
+					<dd>
+						<a href="javascript:void(0)" values2="100" values1="0" attrval="100升以下">100升以下</a>
+						<a href="javascript:void(0)" values2="200" values1="101" attrval="101-200升">101-200升</a>
+						<a href="javascript:void(0)" values2="1699" values1="1000" attrval="1000-1699升">201-250升</a>
+						<a href="javascript:void(0)" values2="300" values1="251" attrval="251-300升">251-300升</a>
+						<a href="javascript:void(0)" values2="400" values1="400" attrval="301-400升">301-400升</a>
+						<a href="javascript:void(0)" values2="500" values1="401" attrval="401-500升">401-500升</a>
+					</dd>
+				</dl>
+
+				<dl class=" listIndex" attr="门款式">
+					<dt>制冷方式：</dt>
+					<dd>
+						<a href="javascript:void(0)" values2="" values1="" attrval="直冷">直冷</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="风冷（无霜）">风冷（无霜）</a>
+						<a href="javascript:void(0)" values2="" values1="" attrval="风直冷（混冷）">风直冷（混冷）</a>
+					</dd>
+				</dl>
+
+			</div>
+
+			<div class="hasBeenSelected">
+				<dl>
+					<dt>您已选择：</dt>
+					<dd style="display:none" class="clearDd">
+						<div class="clearList"></div>
+						<div style="display:none;" class="eliminateCriteria">清除筛选条件</div>
+					</dd>
+				</dl>
+			</div>
+			<div class="dowebok">
+				<div class="filtr-item itemNum11-2-2-0" data-category="1, 5">
+					<img src="img/容声.jpg" alt="">
+				</div>
+				<div class="filtr-item itemNumnn-n-n-n" style="font-size:20px">全适配
+				</div>
+				<div class="filtr-item itemNum10-2-2-0" data-category="1, 4">
+					<img src="img/海尔2.jpg" alt="">
+				</div>
+				<div class="filtr-item itemNum00-0-0-0">海尔，三门，100升-..，直冷</div>
+				<div class="filtr-item itemNum01-0-0-0">西门子，三门，100升-..，直冷</div>
+				<div class="filtr-item itemNum02-1-2-1">美的十字门200升-..风冷</div>
+				<div class="filtr-item itemNum03-5-3-0">容声，对开门，250升-..，直冷</div>
+				<div class="filtr-item itemNum04-0-1-0">松下，三门，100升-..，直冷</div>
+				<div class="filtr-item itemNum05-2-0-1">美菱，单门，100升-..，风冷</div>
+				<div class="filtr-item itemNum06-2-0-0">tcl，三门，100升以下，直冷</div>
+				<div class="filtr-item itemNum07-0-1-0">奥玛，三门，100升-..，直冷</div>
+				<div class="filtr-item itemNum08-0-1-2">康佳，三门，100升-..，风直冷</div>
+			</div>
+			<!--<div class="contents">
+		<div class="items">西门子三门直冷100升以下</div>
+		<div class="items">西门子十字对开门风直冷（混冷）100升以下</div>
+		<div class="items">松下三门直冷100升以下</div>
+		<div class="items">西门子三门风冷（无霜）301-400升</div>
+		<div class="items">美的双门风直冷（混冷）301-400升</div>
+		<div class="items">西门子十字对开门直冷301-400升</div>
+		<div class="items">西门子三门风冷（无霜）201-250升</div>
+		<div class="items">西门子双门直冷301-400升</div>
+		<div class="items">松下三门直冷301-400升</div>
+		<div class="items">西门子三门直冷3201-250升</div>
+		<div class="items">松下三门直冷301-400升</div>
+		<div class="items">西门子三门直冷301-400升</div>
+		<div class="items">美的十字对开门直冷301-400升</div>
+		<div class="items">西门子双门直冷201-250升</div>
+		<div class="items">美的三门直冷301-400升</div>
+		
+		
+		
+	</div>-->
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.filterizr.js"></script>
+		<script type="text/javascript">
+			var dlNum = $("#selectList").find("dl");
+			var dowebok =$('.dowebok')[0];
+			var items = dowebok.children;
+			// 读图片标签码
+			function getClass(str){
+					 var strs = str.match(/(((\w{1,2})-)){3}\w{1,2}/);
+					 strs = strs[0];
+					 strs = strs.match(/\w{1,2}/g)
+					 return strs
+			}
+			var itemli = [];
+			var dllen = $('#selectList dl').length
+			function yinChang(){
+				for(var i = 0; i < items.length;i++){
+					itemli.push(getClass(items[i].className))
+					items[i].style.display = 'inline';
+					for(var j = 0;j < dllen;j++){
+						(function(i,j){
+						if (xuanzhong[j] == null || itemli[i][j] == 'n'||itemli[i][j] =='nn') {}else{
+						if(itemli[i][j] == xuanzhong[j] && items[i].style.display == 'inline'){items[i].style.display='inline';}
+							else{
+							items[i].style.display='none';
+						}
+						}
+						})(i,j)
+					}
+				}				
+			}
+			var xuanzhong = [null,null,null,null];
+			console.log(itemli)
+			yinChang();
+			for(i = 0; i < dlNum.length; i++) {
+				$(".hasBeenSelected .clearList").append("<div class=\"selectedInfor selectedShow\" style=\"display:none\"><span></span><label></label><em></em></div>");
+			}
+
+			var refresh = "true";
+
+			$(".listIndex a ").on("click", function() {
+				var text = $(this).text();
+				var selectedShow = $(".selectedShow");
+				var textTypeIndex = $(this).parents("dl").index();
+				var textType = $(this).parent("dd").siblings("dt").text();
+				index = textTypeIndex - (2);
+				var thisIndex = $(this).index();
+				xuanzhong[index] = thisIndex;
+				console.log(xuanzhong)
+				$(".clearDd").show();
+				$(".selectedShow").eq(index).show();
+				$(this).addClass("selected").siblings().removeClass("selected");
+				selectedShow.eq(index).find("span").text(textType);
+				selectedShow.eq(index).find("label").text(text);
+				var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
+				if(show > 1) {
+					$(".eliminateCriteria").show();
+				}
+				yinChang();
+			});
+			$(".selectedShow em").on("click", function() {
+				$(this).parents(".selectedShow").hide();
+				var textTypeIndex = $(this).parents(".selectedShow").index();
+				index = textTypeIndex;
+				xuanzhong[index] = null;
+				$(".listIndex").eq(index).find("a").removeClass("selected");
+
+				if($(".listIndex .selected").length < 2) {
+					$(".eliminateCriteria").hide();
+				}
+			});
+
+			$(".eliminateCriteria").on("click", function() {
+				$(".selectedShow").hide();
+				xuanzhong = [null,null,null,null]
+				$(this).hide();
+				$(".listIndex a ").removeClass("selected");
+			});
+		</script>
+	</body>
+
+</html>

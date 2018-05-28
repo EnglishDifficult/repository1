@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片筛选</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.selector>div{
+		border-bottom: 1px solid;
+		height: 60px;
+		width: 100%;
+		float: left;
+	}
+	.selector>div>div{
+		float: left;
+		width: 33%;
+		height: 100%;
+		font-size: 30px;
+		text-align: center;
+		border: 1px solid skyblue;
+	}
+	.pic div:not(.picnnn){
+		font-size: 30px;
+		text-align: center;
+		float: left;
+		width: 100px;
+		height: 100px;
+		border: 1px solid;
+	}
+	.picnnn{
+		font-size: 20px;
+		text-align: center;
+		float: left;
+		width: 300px;
+		height: 100px;
+		border: 1px solid;
+	}
+</style>
+</head>
+<body>
+	<div class="contain">
+		<div class="selector">
+			<div class="selector1">
+				<div>第一位码0</div>
+				<div>第一位码1</div>
+				<div>第一位码2</div>
+			</div>
+			<div class="selector2">
+				<div>第二位码0</div>
+				<div>第二位码1</div>
+			</div>
+			<div class="selector3">	
+				<div>第三位码0</div>
+			</div>			
+		</div>
+		<div id="selected" style = "float:right;width:100%;font-size:30px;"></div>
+		<div class="pic">
+			<div class="pic000">pic码000</div>
+			<div class="pic010">pic码010</div>
+			<div class="pic100">pic码100</div>
+			<div class="pic110">pic码110</div>
+			<div class="pic200">pic码200</div>
+			<div class="pic210">pic码210</div>
+			<div class="picnnn">
+				说明：前面为标签齐全的显示情况；后面为标签未全的显示情况；n为通配码；最多一列10个标签
+			</div>
+			<div class="pic0nn">pic码0nn</div>
+			<div class="pic1nn">pic码1nn</div>
+			<div class="pic2nn">pic码2nn</div>
+			<div class="picn0n">pic码n0n</div>
+			<div class="picn1n">pic码n1n</div>
+			<div class="picnn0">pic码nn0</div>
+			<div class="pic0n0">pic码0n0</div>
+			<div class="pic1n0">pic码1n0</div>
+			<div class="pic2n0">pic码2n0</div>
+			<div class="picn00">pic码n00</div>
+			<div class="picn10">pic码n10</div>
+			<div class="pic00n">pic码00n</div>
+			<div class="pic01n">pic码01n</div>
+			<div class="pic10n">pic码10n</div>
+			<div class="pic11n">pic码11n</div>
+			<div class="pic20n">pic码20n</div>
+			<div class="pic21n">pic码21n</div>
+		</div>
+	</div>
+	<script>
+		var selector = document.getElementsByClassName('selector')[0];
+				var selected = document.getElementById('selected')
+		console.log(selector.children[0].children[0])
+		var pic = document.getElementsByClassName('pic')[0];
+		var a = selector.children;
+		var arr = [];
+		var xuanzhong = [];
+		var arrs = [];
+		var xuanzhong = [];
+				// 建立选项对应序号
+			for (var i = 0;i < a.length;i++) {
+				xuanzhong[i] = null;
+				a.len = i;
+				for (var j =0;j < a[i].children.length;j++) {
+					arrs.push(j)
+					arr.push(arrs)
+					arrs = [];
+					// 将点选的选项保存并记录其序号
+					(function(i,j){
+					return a[i].children[j].onclick = function(i,j){
+						for(var i = 0;i < 20;i++){
+							 if (this.parentNode.children[i] === this) {console.log(i)
+						for(var j = 0;j < a.length;j++){
+							if(this.parentNode.parentNode.children[j] === this.parentNode){
+								console.log(j);
+								(function(i,j){
+									return xuanzhong[j] = i;
+								})(i,j)
+							}
+						}
+							 }
+						}	
+						console.log(xuanzhong)
+				selected.innerHTML = '你选择了:第一个选项 : '+xuanzhong[0]+" 第二个选项 : "+xuanzhong[1]+" 第三个选项 : "+xuanzhong[2]
+						gengXin();	
+					}
+					})(i,j)
+			}
+				}
+			var pic = document.getElementsByClassName('pic')[0];
+			var piclen = pic.children.length,
+				picc = pic.children;
+				// 读出图片的类
+				function duShu(str){
+					 var strs = str.match(/\w{6}/);
+					 strs = String(strs);
+					 strs = strs.slice(3,6)
+					 return strs
+				}
+				var picindex = [];
+				// 图片筛选隐藏功能
+				function gengXin(){
+				for(var i = 0;i <piclen;i++){
+					picindex.push(duShu(picc[i].className))
+					picc[i].style.display = 'inline';
+					for(var j = 0;j < 3;j++){
+						(function(i,j){
+						if (xuanzhong[j] == null || picindex[i][j] == 'n') {}else{
+						if(picindex[i][j] == xuanzhong[j] && picc[i].style.display == 'inline'){picc[i].style.display='inline';}
+							else{
+							picc[i].style.display='none';
+						}
+						}
+						})(i,j)
+					}
+				}
+				};
+				selected.innerHTML = '你选择了:第一个选项 : '+xuanzhong[0]+" 第二个选项 : "+xuanzhong[1]+" 第三个选项 : "+xuanzhong[2]
+			console.log(xuanzhong)
+	</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+	#contains{
+		text-align: center;
+		font-size: 20px;
+	}
+	.contain{
+		display: flex;
+		width: 1200px;
+		height: 200px;
+		border-top: 0;
+		/*overflow: scroll;*/
+		/*float: left;*/
+		margin:0 auto;
+		background: skyblue;
+		border:5px solid #f1f1f1;
+	}
+	.contain div{
+		border:1px solid green;
+		background: orange;
+		text-align: center;
+	}
+	.contain:nth-child(1){
+		border-top:5px solid #f1f1f1;
+	}
+	.contain:nth-child(1) div{
+		flex-grow: 1;
+	}
+	.contain:nth-child(1) div:nth-child(2){
+		flex-grow:10;
+	}
+	.contain:nth-child(2) div:nth-child(5){
+		order: 2;
+		align-self: center;
+	}
+	.contain:nth-child(2) div{
+		/*flex-grow:1;*/
+	}
+	.contain:nth-child(2) div:nth-child(5){
+		flex-basis:400px;
+	}
+	.contain:nth-child(2){
+		flex-direction:row-reverse;
+	}
+	.contain:nth-child(3){
+		flex-direction:column;
+		flex-wrap:wrap;
+		/*column column-reverse*/
+	}
+	.contain:nth-child(4){
+		flex-flow: column-reverse wrap-reverse;
+/*		flex-direction:column-reverse;
+		flex-wrap:wrap-reverse;*/
+			/*column column-reverse*/
+	}
+	.contain:nth-child(5){
+		justify-content:flex-end;
+		/*flex-start flex-end center space-between space-around*/
+		/*nowrap wrap wrap-reverse*/
+	}
+	.contain:nth-child(6){
+		justify-content:center;
+		flex-direction:row-reverse;
+		/*column column-reverse*/
+	}
+	.contain:nth-child(7){
+		justify-content:space-between;
+		/*space-between*/
+	}
+	.contain:nth-child(8){
+		justify-content:space-around;
+	}
+	.contain:nth-child(9){
+		align-items:flex-end;
+		/*center baseline stertch;*/
+	}
+	.contain:nth-child(10){
+		align-items:center;
+	}
+	.contain:nth-child(11){
+		align-content:center;
+		flex-flow:wrap;
+	}
+	</style>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="contains">
+		<!-- <div class="contain"></div> -->
+	</div>
+</body>
+	<script type="text/javascript">
+		var height = new Array();
+		var wh = new Array();
+		var contain = document.getElementsByClassName("contain");
+		var contains = document.getElementById("contains");
+		var array = new Array();
+		for(var j = 0;j <= 10;j++){
+			var list = document.createElement("div");
+			var listword = document.createTextNode(j+1);
+			listword.className = list;
+			list.className = "contain";
+			contains.appendChild(listword);
+			contains.appendChild(list);
+			for(var i = 0;i <= 9;i++){
+			var para = document.createElement("div");
+			var node = document.createTextNode(i);
+			var randomw = Math.random();
+			var randomh = Math.random();
+			randomw = randomw*100;
+			randomh = randomh*100;
+			randomw = Math.round(randomw);
+			randomh = Math.round(randomh);
+				height[i] = (randomh+20)*1;
+				wh[i] = (randomw+20)*1;
+			array[i] = para;
+			array[i].style.height = height[i]+"px";
+			array[i].style.width = wh[i]+"px";
+			array[i].appendChild(node);
+			contain[j].appendChild(array[i]);
+			// console.log(wh)
+			}
+			}
+	</script>
+</html>
